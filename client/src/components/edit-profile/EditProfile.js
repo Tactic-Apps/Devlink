@@ -26,7 +26,7 @@ class EditProfile extends Component {
     linkedin: "",
     youtube: "",
     instagram: "",
-    errors: {}
+    errors: {},
   };
 
   componentDidMount() {
@@ -83,12 +83,12 @@ class EditProfile extends Component {
         facebook: profile.facebook,
         linkedin: profile.linkedin,
         youtube: profile.youtube,
-        instagram: profile.instagram
+        instagram: profile.instagram,
       });
     }
   }
 
-  onSubmit = e => {
+  onSubmit = (e) => {
     e.preventDefault();
 
     const profileData = {
@@ -104,13 +104,13 @@ class EditProfile extends Component {
       facebook: this.state.facebook,
       linkedin: this.state.linkedin,
       youtube: this.state.youtube,
-      instagram: this.state.instagram
+      instagram: this.state.instagram,
     };
 
     this.props.createProfile(profileData, this.props.history);
   };
 
-  onChange = e => {
+  onChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
@@ -177,12 +177,12 @@ class EditProfile extends Component {
       { label: "Instructor or Teacher", value: "Instructor or Teacher" },
       { label: "Intern", value: "Intern" },
       { label: "Designer", value: "Designer" },
-      { label: "Other", value: "Other" }
+      { label: "Other", value: "Other" },
     ];
 
     return (
       <div className="create-profile">
-        <div className="container">
+        <div className="container pt-5 pb-5">
           <div className="row">
             <div className="col-md-8 m-auto">
               <Link to="/dashboard" className="btn btn-light">
@@ -260,8 +260,8 @@ class EditProfile extends Component {
                   <button
                     type="button"
                     onClick={() => {
-                      this.setState(prevState => ({
-                        displaySocialInputs: !prevState.displaySocialInputs
+                      this.setState((prevState) => ({
+                        displaySocialInputs: !prevState.displaySocialInputs,
                       }));
                     }}
                     className="btn btn-light"
@@ -289,18 +289,18 @@ EditProfile.propTypes = {
   createProfile: PropTypes.func.isRequired,
   getCurrentProfile: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired,
-  errors: PropTypes.object.isRequired
+  errors: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   profile: state.profile,
-  errors: state.errors
+  errors: state.errors,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   createProfile: (profileData, history) =>
     dispatch(actionCreators.createProfile(profileData, history)),
-  getCurrentProfile: () => dispatch(actionCreators.getCurrentProfile())
+  getCurrentProfile: () => dispatch(actionCreators.getCurrentProfile()),
 });
 
 export default connect(

@@ -9,7 +9,7 @@ import TextFieldGroup from "../common/TextFieldGroup";
 class ForgetPassword extends Component {
   state = {
     email: "",
-    errors: {}
+    errors: {},
   };
 
   componentDidMount() {
@@ -24,11 +24,11 @@ class ForgetPassword extends Component {
     }
   }
 
-  onChange = e => {
+  onChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  onSubmit = e => {
+  onSubmit = (e) => {
     e.preventDefault();
     const userEmail = { email: this.state.email };
     this.props.resetEmail(userEmail);
@@ -69,7 +69,7 @@ class ForgetPassword extends Component {
 
     return (
       <div className="forgetpw">
-        <div className="container">
+        <div className="container pt-5 pb-5">
           <div className="row">
             <div className="col-md-8 m-auto">
               <h1 className="display-4 text-center">Forget Password?</h1>
@@ -85,20 +85,17 @@ class ForgetPassword extends Component {
 ForgetPassword.propTypes = {
   resetEmail: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
-  errors: PropTypes.object.isRequired
+  errors: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   auth: state.auth,
   errors: state.errors,
-  pwReset: state.pwReset
+  pwReset: state.pwReset,
 });
 
-const mapDispatchToProps = dispatch => ({
-  resetEmail: userEmail => dispatch(actionCreators.resetEmail(userEmail))
+const mapDispatchToProps = (dispatch) => ({
+  resetEmail: (userEmail) => dispatch(actionCreators.resetEmail(userEmail)),
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ForgetPassword);
+export default connect(mapStateToProps, mapDispatchToProps)(ForgetPassword);

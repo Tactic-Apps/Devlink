@@ -17,7 +17,7 @@ class AddEducation extends Component {
     current: false,
     description: "",
     disabled: false,
-    errors: {}
+    errors: {},
   };
 
   componentWillReceiveProps(nextProps) {
@@ -29,15 +29,15 @@ class AddEducation extends Component {
   onCheck = () => {
     this.setState({
       disabled: !this.state.disabled,
-      current: !this.state.current
+      current: !this.state.current,
     });
   };
 
-  onChange = e => {
+  onChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  onSubmit = e => {
+  onSubmit = (e) => {
     e.preventDefault();
 
     const eduData = {
@@ -47,7 +47,7 @@ class AddEducation extends Component {
       from: this.state.from,
       to: this.state.to,
       current: this.state.current,
-      description: this.state.description
+      description: this.state.description,
     };
 
     this.props.addEducation(eduData, this.props.history);
@@ -58,7 +58,7 @@ class AddEducation extends Component {
 
     return (
       <div className="add-education">
-        <div className="container">
+        <div className="container pt-5 pb-5">
           <div className="row">
             <div className="com-md-8 m-auto">
               <Link to="/dashboard" className="btn btn-light">
@@ -147,17 +147,17 @@ class AddEducation extends Component {
 AddEducation.propTypes = {
   addEducation: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired,
-  errors: PropTypes.object.isRequired
+  errors: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   profile: state.profile,
-  errors: state.errors
+  errors: state.errors,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   addEducation: (eduData, history) =>
-    dispatch(actionCreators.addEducation(eduData, history))
+    dispatch(actionCreators.addEducation(eduData, history)),
 });
 
 export default connect(

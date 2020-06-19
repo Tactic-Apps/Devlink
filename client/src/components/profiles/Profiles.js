@@ -19,7 +19,7 @@ class Profiles extends Component {
       profileItems = <Spinner />;
     } else {
       if (profiles.length > 0) {
-        profileItems = profiles.map(profile => (
+        profileItems = profiles.map((profile) => (
           <ProfileItem key={profile._id} profile={profile} />
         ));
       } else {
@@ -28,7 +28,7 @@ class Profiles extends Component {
     }
     return (
       <div className="profiles">
-        <div className="container">
+        <div className="container pt-5 pb-5">
           <div className="row">
             <div className="col-md-12">
               <h1 className="display-4 text-center">Developer Profiles</h1>
@@ -46,18 +46,15 @@ class Profiles extends Component {
 
 Profiles.propTypes = {
   getProfiles: PropTypes.func.isRequired,
-  profile: PropTypes.object.isRequired
+  profile: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
-  profile: state.profile
+const mapStateToProps = (state) => ({
+  profile: state.profile,
 });
 
-const mapDispatchToProps = dispatch => ({
-  getProfiles: () => dispatch(actionCreators.getProfiles())
+const mapDispatchToProps = (dispatch) => ({
+  getProfiles: () => dispatch(actionCreators.getProfiles()),
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Profiles);
+export default connect(mapStateToProps, mapDispatchToProps)(Profiles);

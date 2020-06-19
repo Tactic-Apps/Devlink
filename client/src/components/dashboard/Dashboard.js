@@ -56,7 +56,7 @@ class Dashboard extends Component {
 
     return (
       <div className="dashboard">
-        <div className="container">
+        <div className="container pt-5 pb-5">
           <div className="row">
             <div className="col-md-12">
               <h1 className="display-4">Dashboard</h1>
@@ -73,20 +73,17 @@ Dashboard.propTypes = {
   getCurrentProfile: PropTypes.func.isRequired,
   deleteAccount: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
-  profile: PropTypes.object.isRequired
+  profile: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   auth: state.auth,
-  profile: state.profile
+  profile: state.profile,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   getCurrentProfile: () => dispatch(actionCreators.getCurrentProfile()),
-  deleteAccount: () => dispatch(actionCreators.deleteAccount())
+  deleteAccount: () => dispatch(actionCreators.deleteAccount()),
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Dashboard);
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

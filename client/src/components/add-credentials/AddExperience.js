@@ -17,7 +17,7 @@ class AddExperience extends Component {
     current: false,
     description: "",
     disabled: false,
-    errors: {}
+    errors: {},
   };
 
   componentWillReceiveProps(nextProps) {
@@ -29,15 +29,15 @@ class AddExperience extends Component {
   onCheck = () => {
     this.setState({
       disabled: !this.state.disabled,
-      current: !this.state.current
+      current: !this.state.current,
     });
   };
 
-  onChange = e => {
+  onChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  onSubmit = e => {
+  onSubmit = (e) => {
     e.preventDefault();
 
     const expData = {
@@ -47,7 +47,7 @@ class AddExperience extends Component {
       from: this.state.from,
       to: this.state.to,
       current: this.state.current,
-      description: this.state.description
+      description: this.state.description,
     };
 
     this.props.addExperience(expData, this.props.history);
@@ -58,7 +58,7 @@ class AddExperience extends Component {
 
     return (
       <div className="add-experience">
-        <div className="container">
+        <div className="container pt-5 pb-5">
           <div className="row">
             <div className="com-md-8 m-auto">
               <Link to="/dashboard" className="btn btn-light">
@@ -147,17 +147,17 @@ class AddExperience extends Component {
 AddExperience.propTypes = {
   addExperience: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired,
-  errors: PropTypes.object.isRequired
+  errors: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   profile: state.profile,
-  errors: state.errors
+  errors: state.errors,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   addExperience: (expData, history) =>
-    dispatch(actionCreators.addExperience(expData, history))
+    dispatch(actionCreators.addExperience(expData, history)),
 });
 
 export default connect(

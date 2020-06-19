@@ -31,7 +31,7 @@ class Post extends Component {
     }
     return (
       <div className="post">
-        <div className="container">
+        <div className="container pt-5 pb-5">
           <div className="row">
             <div className="col-md-12">
               <Link to="/feed" className="btn btn-light mb-3">
@@ -48,18 +48,15 @@ class Post extends Component {
 
 Post.propTypes = {
   getPost: PropTypes.func.isRequired,
-  post: PropTypes.object.isRequired
+  post: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
-  post: state.post
+const mapStateToProps = (state) => ({
+  post: state.post,
 });
 
-const mapDispatchToProps = dispatch => ({
-  getPost: id => dispatch(actionCreators.getPost(id))
+const mapDispatchToProps = (dispatch) => ({
+  getPost: (id) => dispatch(actionCreators.getPost(id)),
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Post);
+export default connect(mapStateToProps, mapDispatchToProps)(Post);

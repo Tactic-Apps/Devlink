@@ -13,7 +13,7 @@ class ResetPassword extends Component {
     password: "",
     password2: "",
     token: "",
-    errors: {}
+    errors: {},
   };
 
   componentDidMount() {
@@ -41,16 +41,16 @@ class ResetPassword extends Component {
     }
   }
 
-  onChange = e => {
+  onChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  onSubmit = e => {
+  onSubmit = (e) => {
     e.preventDefault();
 
     const newPassword = {
       password: this.state.password,
-      password2: this.state.password2
+      password2: this.state.password2,
     };
 
     this.props.setNewPassword(newPassword);
@@ -108,7 +108,7 @@ class ResetPassword extends Component {
 
     return (
       <div className="register">
-        <div className="container">
+        <div className="container pt-5 pb-5">
           <div className="row">
             <div className="col-md-8 m-auto">
               <h1 className="display-4 text-center">Reset Password</h1>
@@ -124,19 +124,19 @@ class ResetPassword extends Component {
 ResetPassword.propTypes = {
   setNewPassword: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
-  errors: PropTypes.object.isRequired
+  errors: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   auth: state.auth,
   errors: state.errors,
-  pwReset: state.pwReset
+  pwReset: state.pwReset,
 });
 
-const mapDispatchToProps = dispatch => ({
-  setNewPassword: newPassword =>
+const mapDispatchToProps = (dispatch) => ({
+  setNewPassword: (newPassword) =>
     dispatch(actionCreators.setNewPassword(newPassword)),
-  checkTokenValidity: () => dispatch(actionCreators.checkTokenValidity())
+  checkTokenValidity: () => dispatch(actionCreators.checkTokenValidity()),
 });
 
 export default connect(

@@ -54,7 +54,7 @@ class Profile extends Component {
     }
     return (
       <div className="profile">
-        <div className="container">
+        <div className="container pt-5 pb-5">
           <div className="row">
             <div className="col-md-12">{profileContent}</div>
           </div>
@@ -65,20 +65,17 @@ class Profile extends Component {
 }
 
 Profile.propTypes = {
-  profile: PropTypes.object.isRequired
+  profile: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   getProfileByHandle: PropTypes.func.isRequired,
-  profile: state.profile
+  profile: state.profile,
 });
 
-const mapDispatchToProps = dispatch => ({
-  getProfileByHandle: handle =>
-    dispatch(actionCreators.getProfileByHandle(handle))
+const mapDispatchToProps = (dispatch) => ({
+  getProfileByHandle: (handle) =>
+    dispatch(actionCreators.getProfileByHandle(handle)),
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Profile);
+export default connect(mapStateToProps, mapDispatchToProps)(Profile);

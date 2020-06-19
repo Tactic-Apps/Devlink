@@ -24,7 +24,7 @@ class Posts extends Component {
 
     return (
       <div className="feed">
-        <div className="container">
+        <div className="container pt-5 pb-5">
           <div className="row">
             <div className="col-md-12">
               <PostForm />
@@ -39,18 +39,15 @@ class Posts extends Component {
 
 Posts.propTypes = {
   getPosts: PropTypes.func.isRequired,
-  post: PropTypes.object.isRequired
+  post: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
-  post: state.post
+const mapStateToProps = (state) => ({
+  post: state.post,
 });
 
-const mapDispatchToProps = dispatch => ({
-  getPosts: () => dispatch(actionCreators.getPosts())
+const mapDispatchToProps = (dispatch) => ({
+  getPosts: () => dispatch(actionCreators.getPosts()),
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Posts);
+export default connect(mapStateToProps, mapDispatchToProps)(Posts);
