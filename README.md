@@ -2,15 +2,15 @@
     <img alt="Face Recognition Brain" src="https://github.com/RayBDev/devconnector/blob/master/client/src/img/logo.png" width="60" />
 </p>
 <h1 align="center">
-  DevConnector
+  DevLink
 </h1>
 
-DevConnector is a single page React application that allows users to create a professional developer profile and share their work and experience with others. It allows users to connect with each other with a post/comment system.
+DevLink is a single page React application that allows users to create a professional developer profile and share their work and experience with others. It allows users to connect with each other with a post/comment system.
 
 You may use the following credentials if you don't want to register:
 
 ```
-Email: john@gmail.com
+Email: JaneSmith123@gmail.com
 Password: 123456
 ```
 
@@ -34,7 +34,7 @@ Password: 123456
 
 ## :computer: Getting Started
 
-The easiest way to view this project is to follow [this link](https://glacial-fjord-21767.herokuapp.com).
+The easiest way to view this project is to follow [this link](https://cryptic-escarpment-66298.herokuapp.com).
 
 You may also clone this repo to view the code and run it directly on your local machine.
 
@@ -44,7 +44,7 @@ You may also clone this repo to view the code and run it directly on your local 
 
     ```sh
     # cd to your desired directory
-    git clone https://github.com/RayBDev/FaceRecognitionApp.git
+    git clone https://github.com/Tactic-Apps/Devlink.git
     ```
 
 2.  **Install Dependencies**
